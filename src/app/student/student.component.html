@@ -33,8 +33,11 @@
           <input type="submit"class="btn btn-primary" value="Submit">
       </div>
     </form>
+    <div class="alert alert-info"  *ngIf="showSuccessMessage">
+      Submitted successfully.
+    </div>
   </div>
-
+  
   <div class="col-md-7">
     <app-student-list></app-student-list>
   </div>

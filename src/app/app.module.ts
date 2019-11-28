@@ -11,7 +11,7 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { StudentService } from './shared/student.service';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,9 +25,11 @@ import { AngularFireModule } from '@angular/fire';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [StudentService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

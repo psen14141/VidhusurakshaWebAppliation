@@ -7,7 +7,7 @@ import { StudentService } from '../shared/student.service';
 })
 export class StudentComponent implements OnInit {
   constructor(private studentService: StudentService) { }
-  showSuccessMessege: boolean;
+  showSuccessMessage: boolean;
   submitted: boolean;
   formControls = this.studentService.form.controls;
 
@@ -18,11 +18,21 @@ export class StudentComponent implements OnInit {
     if (this.studentService.form.valid) {
       if (this.studentService.form.get('$key').value == null) {
         this.studentService.insertStudent(this.studentService.form.value);
-        this.showSuccessMessege = true;
-        setTimeout(() => this.showSuccessMessege = false, 3000);
-        } else {
-        this.submitted = false;
+      } else {
+        this.studentService.updateStudent(this.studentService.form.value);
       }
+      this.showSuccessMessage = true;
+      setTimeout(() => this.showSuccessMessage = false, 3000);
+      this.submitted = false;
+      this.studentService.form.reset();
+      // this is to be done for proper reset operation
+      this.studentService.form.setValue({
+        $key: null,
+        fullName: '',
+        email: '',
+        mobile: '',
+        location: ''
+      });
     }
   }
 

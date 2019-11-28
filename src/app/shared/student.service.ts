@@ -29,16 +29,16 @@ export class StudentService {
     });
   }
 
-  populateForm(customer) {
-    this.form.setValue(customer);
+  populateForm(student) {
+    this.form.setValue(student);
   }
-  updateCustomer(customer) {
-    this.studentList.update(customer.$key,
+  updateStudent(student) {
+    this.studentList.update(student.$key,
       {
-        fullName: customer.fullName,
-        email: customer.email,
-        mobile: customer.mobile,
-        location: customer.location
+        fullName: student.fullName,
+        email: student.email,
+        mobile: student.mobile,
+        location: student.location
       });
   }
 

@@ -1,17 +1,15 @@
 
 <br>
 <div class="row">
-  
-  <br>
   <div class="col-md-5">
-      <h4>Students</h4><br><br>
-    <h5>Add Students</h5>
-    <form [formGroup]="this.studentService.form" (ngSubmit)="onSubmit()">
+    <h5>Add Teachers</h5>
+    <br>
+    <form [formGroup]="this.teacherService.form" (ngSubmit)="onSubmit()">
       <input type="hidden" formControlName="$key">
       <div class="form-group">
-        <label>Student ID</label>
-        <input formControlName="studentid" class="form-control" [ngClass]="{'is-invalid' :submitted && formControls.studentid.errors}">
-        <div class="invalid-feedback" *ngIf="submitted && formControls.studentid.errors"></div>
+        <label>Teacher ID</label>
+        <input formControlName="teacherid" class="form-control" [ngClass]="{'is-invalid' :submitted && formControls.teacherid.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.teacherid.errors"></div>
       </div>
       <div class="form-group">
         <label>Full Name</label>
@@ -34,9 +32,13 @@
           </div>
       </div>
       <div class="form-group">
-          <label>class</label>
-          <input formControlName="studentclass" class="form-control">
+          <label>Subject</label>
+          <input formControlName="subject" class="form-control">
       </div>
+      <div class="form-group">
+        <label>Class</label>
+        <input formControlName="class" class="form-control">
+    </div>
       <div class="form-group">
           <input type="submit"class="btn btn-primary" value="Submit">
       </div>
@@ -47,8 +49,9 @@
   </div>
   
   <div class="col-md-7">
-    <h5>Student Details</h5>
-    <app-student-list></app-student-list>
+    <h5>Teachers Details</h5>
+    <br>
+    <app-teachers-list></app-teachers-list>
   </div>
   
 </div>

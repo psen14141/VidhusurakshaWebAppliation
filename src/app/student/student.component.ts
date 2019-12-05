@@ -5,12 +5,12 @@ import { StudentService } from '../shared/student.service';
   templateUrl: './student.component.html',
   styleUrls: ['./student.component.css']
 })
+
 export class StudentComponent implements OnInit {
   constructor(private studentService: StudentService) { }
   showSuccessMessage: boolean;
   submitted: boolean;
   formControls = this.studentService.form.controls;
-
   ngOnInit() {
   }
   onSubmit() {
@@ -28,10 +28,11 @@ export class StudentComponent implements OnInit {
       // this is to be done for proper reset operation
       this.studentService.form.setValue({
         $key: null,
+        studentid: '',
         fullName: '',
-        email: '',
+        idnumber: '',
         mobile: '',
-        location: ''
+        studentclass: ''
       });
     }
   }

@@ -1,0 +1,46 @@
+
+<h4 style="color: rgb(46, 6, 83);">Classes</h4>
+<br>
+<div class="row">
+  <div class="col-md-9">
+      <h5>Class List </h5>
+    <app-classes-list></app-classes-list>
+  </div>
+  <div class="col-md-4.5">
+    <h5>Add Classes</h5>
+    <form [formGroup]="this.clzService.form" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="$key">
+      <div class="form-group">
+        <label>Class ID</label>
+        <input formControlName="clzid" class="form-control" [ngClass]="{'is-invalid' :submitted && formControls.clzid.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.clzid.errors"></div>
+      </div>
+      <div class="form-group">
+        <label>Class Name</label>
+        <input formControlName="clzname" class="form-control" [ngClass]="{'is-invalid' :submitted && formControls.clzname.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.clzname.errors"></div>
+      </div>
+      <div class="form-group">
+          <label>Class Teacher</label>
+          <input formControlName="clzteacher" class="form-control" [ngClass]="{'is-invalid' :submitted && formControls.clzteacher.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.clzteacher.errors"></div>
+      </div>
+      <div class="form-group">
+          <label>Number of Students</label>
+          <input formControlName="numberofstudents" class="form-control" [ngClass]="{'is-invalid' :submitted && formControls.numberofstudents.errors}">
+          <div class="invalid-feedback" *ngIf="submitted && formControls.numberofstudents.errors"></div>
+      </div>
+      <div class="form-group">
+          <label>Memo</label>
+          <input formControlName="clzmemo" class="form-control">
+      </div>
+      <div class="form-group">
+          <input type="submit"class="btn btn-primary" value="Submit">
+      </div>
+    </form>
+    <div class="alert alert-info"  *ngIf="showSuccessMessage">
+      Submitted successfully.
+    </div>
+  </div>
+
+</div>

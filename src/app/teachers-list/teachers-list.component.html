@@ -4,22 +4,21 @@
 </form>
 <table class="table table-sm" style="background-color: rgb(36, 20, 73);">
   <thead style="color: aliceblue;">
-      <th>ID</th>
+    <th>ID</th>
     <th>Full Name</th>
     <th>ID Number</th>
     <th>Mobile</th>
     <th></th>
   </thead>
-  <ng-container *ngFor="let student of studentArray">
-    <tr class="table-light" *ngIf="filterCondition(student)">
-        <td>{{student.studentid}}</td>
-      <td>{{student.fullName}}</td>
-      <td>{{student.idnumber}}</td>
-        <td>{{student.mobile}}</td>
+  <ng-container *ngFor="let teacher of teacherArray">
+    <tr class="table-light" *ngIf="filterCondition(teacher)" >
+        <td>{{teacher.teacherid}}</td>
+      <td>{{teacher.fullName}}</td>
+      <td>{{teacher.idnumber}}</td>
+        <td>{{teacher.mobile}}</td>
         <td>
-          
-          <button class="btn btn-outline-info" (click)="studentService.populateForm(student)">Edit</button>
-          <button class="btn btn-outline-danger" (click)="onDelete(student.$key)">Delete</button>
+          <button class="btn btn-outline-info" (click)="teacherService.populateForm(teacher)">Edit</button>
+          <button class="btn btn-outline-danger" (click)="onDelete(teacher.$key)">Delete</button>
         </td>
     </tr>
   </ng-container>

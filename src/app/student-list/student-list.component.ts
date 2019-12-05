@@ -29,7 +29,7 @@ export class StudentListComponent implements OnInit {
 
   onDelete($key) {
     if (confirm('Are you sure to delete this record ?')) {
-      this.studentService.deleteCustomer($key);
+      this.studentService.deleteStudent($key);
       this.showDeletedMessage = true;
       setTimeout(() => this.showDeletedMessage = false, 3000);
     }

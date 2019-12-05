@@ -1,0 +1,38 @@
+
+<br>
+<div class="row">
+  <br>
+  <div class="col-md-5">
+      <h4>NEWS</h4><br><br>
+    <h5>ADD NEWS</h5>
+    <form [formGroup]="this.newsService.form" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="$key">
+      <div class="form-group">
+        <label>News ID</label>
+        <input formControlName="newsid" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Heading</label>
+        <input formControlName="heading" class="form-control" >
+      </div>
+      <div class="form-group">
+          <label>Reporter</label>
+          <input formControlName="reporter" class="form-control">
+      </div>
+      <div class="form-group">
+          <label>Date</label>
+          <input formControlName="date" class="form-control">
+      </div>
+      <div class="form-group">
+          <label>News</label>
+          <input formControlName="content" class="form-control">
+      </div>
+      <div class="form-group">
+          <input type="submit"class="btn btn-primary" value="Submit">
+      </div>
+    </form>
+    <div class="alert alert-info"  *ngIf="showSuccessMessage">
+      Submitted successfully.
+    </div>
+  </div> 
+</div>

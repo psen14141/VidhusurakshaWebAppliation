@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-10">
+    <ng-container  *ngFor="let news of newsArray">
+    
+    <h5>{{news.heading}}</h5>
+    <p style="font-style: italic;text-decoration-color: blue;">by : {{news.reporter}}</p>
+    <p style="font-style: italic;text-decoration-color: blue;">date : {{news.date}}</p>
+    <p>{{news.content}}</p> <br>
+    </ng-container>
+    </div>
+    <div class="col-md-1">
+      <br>
+      <button class = "btn btn-primary" type="submit" [routerLink]="['/addnews']" routerLinkActive="router-link-active" >ADD News</button>
+    </div>
+</div>

@@ -7,25 +7,29 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 })
 export class StudentService {
 
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(private firebase: AngularFireDatabase) {
+    this.studentList = this.firebase.list('institute/institute - 1/students');
+  }
   studentList: AngularFireList<any>;
   form = new FormGroup({
     $key: new FormControl(null),
+    studentid : new FormControl('', Validators.required),
     fullName : new FormControl('', Validators.required),
-    email : new FormControl('',  Validators.email),
-    mobile : new FormControl('',  [Validators.required, Validators.minLength(8)]),
-    location : new FormControl('')
+    idnumber : new FormControl('',  [Validators.required, Validators.minLength(10)]),
+    mobile : new FormControl('',  [Validators.required, Validators.minLength(10)]),
+    studentclass : new FormControl(''),
   });
   getStudents() {
-    this.studentList = this.firebase.list('students');
+    this.studentList = this.firebase.list('institute/institute - 1/students');
     return this.studentList.snapshotChanges();
   }
   insertStudent(student) {
     this.studentList.push({
+      studentid: student.studentid,
       fullName: student.fullName,
-      email: student.email,
+      idnumber: student.idnumber,
       mobile: student.mobile,
-      location: student.location
+      studentclass: student.studentclass
     });
   }
 
@@ -35,14 +39,15 @@ export class StudentService {
   updateStudent(student) {
     this.studentList.update(student.$key,
       {
+        studentid: student.studentid,
         fullName: student.fullName,
-        email: student.email,
+        idnumber: student.idnumber,
         mobile: student.mobile,
-        location: student.location
+        studentclass: student.studentclass
       });
   }
 
-  deleteCustomer($key: string) {
+  deleteStudent($key: string) {
     this.studentList.remove($key);
   }
 
